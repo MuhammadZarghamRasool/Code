@@ -62,7 +62,7 @@ def home():
             data=tests_rental.query.filter_by(location=location, city=city).all()
         
         elif category=="Category" and city=="City" and type!="Type":
-            data=tests_rental.query.filter_by(location=location, type=type).all()
+            data=tests_rental.query.filter_by(location=location, type=type).all
         
         elif category!="Category" and city!="City" and type=="Type":
             data=tests_rental.query.filter_by(location=location, category=category, city=city).all()
