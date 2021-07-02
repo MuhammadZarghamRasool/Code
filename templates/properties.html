@@ -95,7 +95,7 @@
           <div class="aa-property-header-inner">
             <h2>Properties Page</h2>
             <ol class="breadcrumb">
-              <li><a href="#">HOME</a></li>
+              <li><a href="#">EstatePorium</a></li>
               <li class="active">PROPERTIES</li>
             </ol>
           </div>
@@ -138,38 +138,45 @@
               </div>
             </div>
             <!-- Start properties content body -->
-          {% for d in data %}
+          
             <div class="aa-properties-content-body">
               <ul class="aa-properties-nav">
                 <li>
+                  {% for d in data %}
                   <article class="aa-properties-item">
                     <a class="aa-properties-item-img" href="#">
-                      <img alt="img" src="{{d.tittle}}">
+                      <img alt="img" src="{{d.image}}">
                     </a>
                     <div class="aa-tag for-rent">
-                      For Rent
+                      <label for="">Category</label>
+                      {{ d.category }}
                     </div>
                     <div class="aa-properties-item-content">
                       <div class="aa-properties-info">
-                        <span>{{ d.bed }}</span>
+                        <label for="">Area</label>
+                        <span>{{ d.area }}</span>
                       </div>
                       <div class="aa-properties-about">
-                        <h3><a href="#">{{ d.tittle }}</a></h3>
-                        <p>Hello</p>
+                        <label for=""><h3>Property Tittle</h3></label>
+                        <h4><a href="#">{{ d.tittle }}</a></h4>
+                        <label for="">Location</label>
+                        <p>{{ d.location }}</p>
                       </div>
                       <div class="aa-properties-detial">
                         <span class="aa-price">
+                          <label for="aaa-price">Price</label>
                           {{ d.price }}
                         </span>
-                      <form action="" method="POST">
+                      <form action="/properties-detail/{{d.id}}" method="POST">
                         <input type="text" name="id" hidden value="{{d.id}}" />
-                        <input type="submit" value="View Details" style="background: aqua" class="aa-secondary-btn" />
+                       <a href=""><input type="submit" value="View Details" style="background: aqua" class="aa-secondary-btn" id ="view" name="view" /></a> 
                       </form>
                       </div>
                     </div>
                   </article>
+                  {% endfor %}
                 </li>
-          {% endfor %}
+          
                 <!-- Start properties content bottom -->
                 <div class="aa-properties-content-bottom">
                   <nav>

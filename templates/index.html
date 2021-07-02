@@ -43,11 +43,19 @@
 
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
+                {% if name %}:
+                
+                <h4 >  {{ name }}</h4>
+                <a href=""> <button type="button" class="btn btn-secondary" >Logout</button></a>
+                
+
+                {% else %}:
                 <div class="aa-header-right">
                   <a href="/signup"><button type="button" class="btn btn-secondary">Sign Up</button></a>
 
                   <a href="/login"> <button type="button" class="btn btn-secondary">Login</button></a>
                 </div>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -64,13 +72,13 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
-            <li class="active"><a href="index.html">HOME</a></li>
+            <li class="active"><a href='/'>HOME</a></li>
 
             </li>
-            <li><a href="price.html">Price Suggestion</a></li>
+            <li><a href='/pricesuggestion'>Price Suggestion</a></li>
             </li>
-            <li><a href="Community.html">Community Forum</a></li>
-            <li><a href="#plotfinder.html">Plot Finder</a></li>
+            <li><a href='/communityforum'>Community Forum</a></li>
+            <li><a href="#">Plot Finder</a></li>
           </ul>
         </div>
       </div>
@@ -117,9 +125,9 @@
               <div class="col-md-2">
                 <div class="aa-single-advance-search">
                   <select name="category" id="category">
-                    <option value="0" selected>Category</option>
-                    <option value="1">Selling</option>
-                    <option value="2">Rental</option>
+                    <option value="Category" selected>Category</option>
+                    <option value="Selling">Selling</option>
+                    <option value="Rental">Rental</option>
                   </select>
                 </div>
               </div>
@@ -127,21 +135,21 @@
               <div class="col-md-2">
                 <div class="aa-single-advance-search">
                   <select name="city" id="city">
-                    <option value="0" selected>City</option>
-                    <option value="1">Islamabad</option>
-                    <option value="2">Karachi</option>
-                    <option value="3">Lahore</option>
-                    <option value="4">Peshawar</option>
-                    <option value="5">Quetta</option>
+                    <option value="City" selected>City</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <option value="Karachi">Karachi</option>
+                    <option value="Lahore">Lahore</option>
+                    <option value="Peshawar">Peshawar</option>
+                    <option value="Quetta">Quetta</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="aa-single-advance-search">
                   <select name="type" id="type">
-                    <option value="0" selected>Type</option>
-                    <option value="1">Residential</option>
-                    <option value="2">Commercial</option>                    
+                    <option value="Type" selected>Type</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Commercial">Commercial</option>                    
                   </select>
                 </div>
               </div>

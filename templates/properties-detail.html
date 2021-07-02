@@ -48,19 +48,14 @@
             <div class="row">
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-left">
-                  <div class="aa-telephone-no">
-                    <span class="fa fa-phone"></span>
-                    1-900-523-3564
-                  </div>
-                  <div class="aa-email hidden-xs">
-                    <span class="fa fa-envelope-o"></span> info@markups.com
-                  </div>
+                  
+                  
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-right">
-                  <a href="register.html" class="aa-register">Register</a>
-                  <a href="signin.html" class="aa-login">Login</a>
+                  <a href='/signup' class="aa-register">Signup</a>
+                  <a href='/login' class="aa-login">Login</a>
                 </div>
               </div>
             </div>
@@ -81,10 +76,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="gallery.html">price suggestion</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-            <li><a href="404.html">404 PAGE</a></li>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/pricesuggestion'>Price Suggestion</a></li>
+            
           </ul>
         </div>
       </div>
@@ -101,8 +95,8 @@
           <div class="aa-property-header-inner">
             <h2>Properties Details</h2>
             <ol class="breadcrumb">
-              <li><a href="#">HOME</a></li>
-              <li class="active">APPARTMENT TITLE</li>
+              <li><a href="#">EstatePorium</a></li>
+              <li class="active">Property Details</li>
             </ol>
           </div>
         </div>
@@ -118,42 +112,39 @@
         <div class="col-md-8">
           <div class="aa-properties-content">
             <!-- Start properties content body -->
+            <form action="" method="POST">
+            {% for d in data %}
             <div class="aa-properties-details">
               <div class="aa-properties-details-img">
-                <img src="img/slider/1.jpg" alt="img">
+                <img src="{{d.image}}" alt="img">
                 <img src="img/slider/2.jpg" alt="img">
                 <img src="img/slider/3.jpg" alt="img">
               </div>
               <div class="aa-properties-info">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, alias!</h2>
-                <span class="aa-price">$65000</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptatibus veniam non voluptate,
-                  ipsa eius magni aliquid ratione sit, odio reprehenderit in quis repudiandae dolor.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consequatur, veritatis, ducimus in
-                  aliquam magnam voluptatibus ullam libero fugiat temporibus at, aliquid explicabo placeat eligendi,
-                  assumenda magni saepe eius consequuntur.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dicta aliquid, autem, cum,
-                  impedit nostrum, rem molestias quisquam ab iure enim totam? Itaque esse ut adipisci officiis nulla
-                  repellendus ratione dolore, iste ex doloribus tenetur eos provident quam quasi maxime.</p>
+                <h2>{{d.tittle}}</h2>
+                <span class="aa-price">{{d.price}}</span>
+                <p>We are really sorry but for now because of some technical reasons 
+                  complete description of the property is not available. Our Technincal 
+                  team is working hard to fix this issue as soon as possible. inconvenience
+                  is regretted.
+                </p>
+                
                 <h4>Propery Features</h4>
                 <ul>
-                  <li>4 Bedroom</li>
-                  <li>3 Baths</li>
+                  <li>{{d.bed}} Bedroom</li>
                   <li>Kitchen</li>
-                  <li>Air Condition</li>
-                  <li>Belcony</li>
-                  <li>Gym</li>
-                  <li>Garden</li>
-                  <li>CCTV</li>
-                  <li>Children Play Ground</li>
-                  <li>Comunity Center</li>
-                  <li>Security System</li>
+                  <li>City {{d.city}}</li>
+                  <li>Category {{d.category}}</li>
+                  
                 </ul>
-               
+          
+              {% endfor %}  
+              </form>  
               </div>
 
 
             </div>
+          
           </div>
         </div>
         <!-- / Properties  -->

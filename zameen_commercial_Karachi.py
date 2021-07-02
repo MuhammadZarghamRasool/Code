@@ -35,6 +35,7 @@ sql = '''INSERT INTO tests_rental (image, tittle, price, bed, area, location, ty
 c.executemany(sql, ads_list.values())
 conn.commit()
 conn.close()
+
 #Storing data in CSV form 
 # df = pd.DataFrame.from_dict(ads_list,orient='index',columns=['image','tittle','price','beds','area','location'])
 # df.to_csv('rental.csv', mode='a',index=False,header=True)

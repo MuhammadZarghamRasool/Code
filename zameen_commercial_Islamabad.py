@@ -31,17 +31,13 @@ while itr != "404":
         type="Commercial"
         city="Islamabad"
         category="Selling"
-
-        
         ads_list[count]=[image,tittle,price,beds,area,location,type,city,category]
         count+=1
+
 sql = '''INSERT INTO tests_rental (image, tittle, price, bed, area, location, type, city, category) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)'''
 c.executemany(sql, ads_list.values())
 conn.commit()
 conn.close()
-
-
     
 print(ads_list)
 
- 

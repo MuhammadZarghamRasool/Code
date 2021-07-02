@@ -2,13 +2,16 @@ import requests
 from bs4 import BeautifulSoup
 import sqlite3
 
+conn =sqlite3.connect("zameen_rental.db")
+c=conn.cursor()
+
 count=0
 ad_list={}
 # j=90
 # i=2670
 # itr=0
 # while j != 99:
-link=requests.get("https://www.graana.com/residential/for_rent/islamabad/all/1?offset=2670&page=90")
+link=requests.get("https://www.graana.com/commercial/for_sale/karachi/all/1?offset=30&page=2")
 #itr=str(link.status_code)
 soup=BeautifulSoup(link.content,'html.parser')
 all=soup.findAll(class_="row style_basic__19QWt")
@@ -33,6 +36,11 @@ for all_data in all:
     
     ad_list[count]=[image,title,price,bath,location,area,city,type,category]
     count+=1
+sql = '''INSERT INTO tests_rental (image, tittle, price, bed, area, location, type, city, category) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)'''
+c.executemany(sql, ad_list.values())
+conn.commit()
+conn.close()
   
 print(ad_list)
+
 

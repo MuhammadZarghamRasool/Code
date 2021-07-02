@@ -5,7 +5,7 @@ import sqlite3
 
 conn =sqlite3.connect("zameen_rental.db")
 c=conn.cursor()
-c.execute('''CREATE TABLE tests_rental(image VARCHAR, tittle TEXT, price INT, bed INT, area INT, location TEXT, city TEXT, type TEXT, category TEXT  )''')
+#c.execute('''CREATE TABLE tests_rental(image VARCHAR, tittle TEXT, price INT, bed INT, area INT, location TEXT, city TEXT, type TEXT, category TEXT  )''')
 
 count=0
 ads_list={}

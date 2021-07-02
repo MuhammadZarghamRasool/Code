@@ -1,31 +1,152 @@
-<html>
-    <head>
-        TEST COMMUNITY  
-    </head>
-    <body>
-        <table>
-            <tr>
-                <th>Task</th>
-                <th>Added</th>
-                <th>Options</th>
-                <th>Actions</th>
-            </tr>
-            {% for task in tasks %}
-                <tr>
-                    <td>{{ task.content }}</td>
-                    <td>{{ task.date_created.date()}}</td>
-                    <td>
-                        <a href="">Delete</a>
-                        <a href="">Update</a>
-                    </td>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estate | Porium</title>
+    <link href="{{url_for('static',filename='css/font-awesome.css')}}" rel="stylesheet">
+
+    <link href="{{url_for('static',filename='css/bootstrap.css')}}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/slick.css')}}">
+
+    <link id="switcher" href="{{url_for('static',filename='css/default-theme.css')}}" rel="stylesheet">
+
+
+    <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+
+    <style>
+        .center {
+            margin-left: 630px;
+            margin-bottom: 20;
+
+
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+
+<body class="aa-price-range">
+    <!-- Pre Loader -->
+    <div id="aa-preloader-area">
+        <div class="pulse"></div>
+    </div>
+    <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+
+    <!-- Start header section -->
+    <header id="aa-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-header-area">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="aa-header-right">
+                                    <a href='/signup' class="aa-register">Signup</a>
+                                    <a href='/login' class="aa-login">Login</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header section -->
+    <!-- Start menu section -->
+    <section id="aa-menu-area">
+        <nav class="navbar navbar-default main-navbar" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <a class="navbar-brand aa-logo" href="index.html">Estate<span>Porium</span></a>
+                    <!-- Image based logo -->
+                    <!-- <a class="navbar-brand aa-logo-img" href="index.html"><img src="img/logo.png" alt="logo"></a> -->
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
+                        <li><a href="index.html">HOME</a></li>
+                        <li class="dropdown active">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="properties.html">PROPERTIES <span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href='/communityforum'>Community Forum</a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+    </section>
+    <!-- End menu section -->
+
+    <!-- Start Proerty header  -->
+
+    <section id="aa-property-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-property-header-inner">
+                        <h2>Community Forum</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Proerty header  -->
+
+    <form action="" method="POST">
+        <div class="center"><input type="text" name="posts" id="posts">
+            <button>post query</button>
+
+            <table style=" margin-left:aut;margin-top: 30;">
+                <tr>
+                    <th>Post</th>
+                    <th>Author</th>
+                    <th>Action</th>
                 </tr>
-            {% endfor %}
-        </table>
-        <form action="/", method="POST">
-        <input type="text", name="content", id="content">
-        <input type="submit", value="Add Task">
-        
-        </form>
-    </body>
+                {% for p in posts %}
+                    <tr>
+                        <td>{{p.post}}</td>
+                        <td>{{p.author}}</td>
+                        <td>
+                            <a href="/delete/{{p.id}}">Delete</a><br>
+                            <a href="/reply/{{p.id}}">Reply</a><br>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </table>
+    </form>
+    </div>
+
+
+
+    <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+
+    <script src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
+
+    <script type="text/javascript" src="{{url_for('static',filename='js/slick.js')}}"></script>
+
+    <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+
+</body>
+
 </html>
